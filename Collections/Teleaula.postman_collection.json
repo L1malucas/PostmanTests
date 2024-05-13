@@ -1,70 +1,681 @@
 {
+	"openapi": "3.0.1",
 	"info": {
-		"_postman_id": "076188c8-8d85-42fe-8503-ac82851b230e",
-		"name": "Teleaula",
-		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_exporter_id": "32861696"
+		"title": "sindautoAPI",
+		"version": "v1"
 	},
-	"item": [
-		{
-			"name": "Agendamento",
-			"event": [
-				{
-					"listen": "test",
-					"script": {
-						"exec": [
-							"{\r",
-							"  \"_id\": \"string\",\r",
-							"  \"operacao\": \"string\",\r",
-							"  \"data_hora\": \"string\",\r",
-							"  \"agendamento\": {\r",
-							"    \"uuid_agendamento\": \"string\",\r",
-							"    \"codigo_servico\": \"string\",\r",
-							"    \"aulas\": [\r",
-							"      {\r",
-							"        \"uuid\": \"string\",\r",
-							"        \"curso\": \"string\",\r",
-							"        \"periodo\": {\r",
-							"          \"inicio\": \"string\",\r",
-							"          \"fim\": \"string\"\r",
-							"        },\r",
-							"        \"numero\": 0,\r",
-							"        \"conteudo\": \"string\",\r",
-							"        \"instrutor\": {\r",
-							"          \"cpf\": \"string\"\r",
-							"        }\r",
-							"      }\r",
-							"    ],\r",
-							"    \"cfc\": {\r",
-							"      \"cnpj\": \"string\"\r",
-							"    }\r",
-							"  }\r",
-							"}"
-						],
-						"type": "text/javascript",
-						"packages": {}
+	"paths": {
+		"/api/Agendamento": {
+			"post": {
+				"tags": [
+					"Agendamento"
+				],
+				"requestBody": {
+					"content": {
+						"application/json": {
+							"schema": {
+								"$ref": "#/components/schemas/AddAgendamentoDTO"
+							}
+						},
+						"text/json": {
+							"schema": {
+								"$ref": "#/components/schemas/AddAgendamentoDTO"
+							}
+						},
+						"application/*+json": {
+							"schema": {
+								"$ref": "#/components/schemas/AddAgendamentoDTO"
+							}
+						}
+					}
+				},
+				"responses": {
+					"200": {
+						"description": "Success"
 					}
 				}
-			],
-			"request": {
-				"method": "POST",
-				"header": [],
-				"url": {
-					"raw": "https://teleaulaapi-dev.renova.app.br/api/Agendamento",
-					"protocol": "https",
-					"host": [
-						"teleaulaapi-dev",
-						"renova",
-						"app",
-						"br"
-					],
-					"path": [
-						"api",
-						"Agendamento"
-					]
+			}
+		},
+		"/api/Agendamento/Cancelar": {
+			"post": {
+				"tags": [
+					"Agendamento"
+				],
+				"requestBody": {
+					"content": {
+						"application/json": {
+							"schema": {
+								"$ref": "#/components/schemas/CancelamentoAgendamentoDto"
+							}
+						},
+						"text/json": {
+							"schema": {
+								"$ref": "#/components/schemas/CancelamentoAgendamentoDto"
+							}
+						},
+						"application/*+json": {
+							"schema": {
+								"$ref": "#/components/schemas/CancelamentoAgendamentoDto"
+							}
+						}
+					}
+				},
+				"responses": {
+					"200": {
+						"description": "Success"
+					}
 				}
+			}
+		},
+		"/api/v1/Auth": {
+			"post": {
+				"tags": [
+					"Auth"
+				],
+				"requestBody": {
+					"content": {
+						"application/json": {
+							"schema": {
+								"$ref": "#/components/schemas/Token"
+							}
+						},
+						"text/json": {
+							"schema": {
+								"$ref": "#/components/schemas/Token"
+							}
+						},
+						"application/*+json": {
+							"schema": {
+								"$ref": "#/components/schemas/Token"
+							}
+						}
+					}
+				},
+				"responses": {
+					"200": {
+						"description": "Success"
+					}
+				}
+			}
+		},
+		"/api/Candidato": {
+			"post": {
+				"tags": [
+					"Candidato"
+				],
+				"requestBody": {
+					"content": {
+						"application/json": {
+							"schema": {
+								"$ref": "#/components/schemas/AdicionarCandidatoDTO"
+							}
+						},
+						"text/json": {
+							"schema": {
+								"$ref": "#/components/schemas/AdicionarCandidatoDTO"
+							}
+						},
+						"application/*+json": {
+							"schema": {
+								"$ref": "#/components/schemas/AdicionarCandidatoDTO"
+							}
+						}
+					}
+				},
+				"responses": {
+					"200": {
+						"description": "Success"
+					}
+				}
+			}
+		},
+		"/api/CFC": {
+			"post": {
+				"tags": [
+					"CFC"
+				],
+				"requestBody": {
+					"content": {
+						"application/json": {
+							"schema": {
+								"$ref": "#/components/schemas/AddCfcDTO"
+							}
+						},
+						"text/json": {
+							"schema": {
+								"$ref": "#/components/schemas/AddCfcDTO"
+							}
+						},
+						"application/*+json": {
+							"schema": {
+								"$ref": "#/components/schemas/AddCfcDTO"
+							}
+						}
+					}
+				},
+				"responses": {
+					"200": {
+						"description": "Success"
+					}
+				}
+			}
+		},
+		"/api/Instrutor": {
+			"post": {
+				"tags": [
+					"Instrutor"
+				],
+				"requestBody": {
+					"content": {
+						"application/json": {
+							"schema": {
+								"$ref": "#/components/schemas/AddInstrutorDTO"
+							}
+						},
+						"text/json": {
+							"schema": {
+								"$ref": "#/components/schemas/AddInstrutorDTO"
+							}
+						},
+						"application/*+json": {
+							"schema": {
+								"$ref": "#/components/schemas/AddInstrutorDTO"
+							}
+						}
+					}
+				},
+				"responses": {
+					"200": {
+						"description": "Success"
+					}
+				}
+			}
+		},
+		"/api/Matricula": {
+			"post": {
+				"tags": [
+					"Matricula"
+				],
+				"requestBody": {
+					"content": {
+						"application/json": {
+							"schema": {
+								"$ref": "#/components/schemas/AddMatriculaDTO"
+							}
+						},
+						"text/json": {
+							"schema": {
+								"$ref": "#/components/schemas/AddMatriculaDTO"
+							}
+						},
+						"application/*+json": {
+							"schema": {
+								"$ref": "#/components/schemas/AddMatriculaDTO"
+							}
+						}
+					}
+				},
+				"responses": {
+					"200": {
+						"description": "Success"
+					}
+				}
+			}
+		},
+		"/api/Test/ListarCursos": {
+			"get": {
+				"tags": [
+					"Test"
+				],
+				"responses": {
+					"200": {
+						"description": "Success"
+					}
+				}
+			}
+		}
+	},
+	"components": {
+		"schemas": {
+			"AddAgendamentoDTO": {
+				"type": "object",
+				"properties": {
+					"_id": {
+						"type": "string",
+						"nullable": true
+					},
+					"operacao": {
+						"type": "string",
+						"nullable": true
+					},
+					"data_hora": {
+						"type": "string",
+						"nullable": true
+					},
+					"agendamento": {
+						"$ref": "#/components/schemas/AgendamentoDTO"
+					}
+				},
+				"additionalProperties": false
 			},
-			"response": []
+			"AddCfcDTO": {
+				"type": "object",
+				"properties": {
+					"_id": {
+						"type": "string",
+						"nullable": true
+					},
+					"operacao": {
+						"type": "string",
+						"nullable": true
+					},
+					"data_hora": {
+						"type": "string",
+						"nullable": true
+					},
+					"cfc": {
+						"$ref": "#/components/schemas/CfcData"
+					}
+				},
+				"additionalProperties": false
+			},
+			"AddInstrutorDTO": {
+				"type": "object",
+				"properties": {
+					"_id": {
+						"type": "string",
+						"nullable": true
+					},
+					"operacao": {
+						"type": "string",
+						"nullable": true
+					},
+					"instrutor": {
+						"$ref": "#/components/schemas/InstrutorDTO"
+					},
+					"data_hora": {
+						"type": "string",
+						"nullable": true
+					},
+					"cfc": {
+						"$ref": "#/components/schemas/CFCInstrutor"
+					}
+				},
+				"additionalProperties": false
+			},
+			"AddMatriculaDTO": {
+				"type": "object",
+				"properties": {
+					"_id": {
+						"type": "string",
+						"nullable": true
+					},
+					"operacao": {
+						"type": "string",
+						"nullable": true
+					},
+					"data_hora": {
+						"type": "string",
+						"nullable": true
+					},
+					"matricula": {
+						"$ref": "#/components/schemas/MatriculaDto"
+					},
+					"cfc": {
+						"$ref": "#/components/schemas/MatriculaCfcDto"
+					}
+				},
+				"additionalProperties": false
+			},
+			"AdicionarCandidatoDTO": {
+				"type": "object",
+				"properties": {
+					"_id": {
+						"type": "string",
+						"nullable": true
+					},
+					"operacao": {
+						"type": "string",
+						"nullable": true
+					},
+					"data_hora": {
+						"type": "string",
+						"nullable": true
+					},
+					"aula": {
+						"$ref": "#/components/schemas/AulaAgendamento"
+					},
+					"candidato": {
+						"$ref": "#/components/schemas/CandidatoAgendamento"
+					}
+				},
+				"additionalProperties": false
+			},
+			"AgendamentoCancel": {
+				"type": "object",
+				"properties": {
+					"uuid_agendamento": {
+						"type": "string",
+						"nullable": true
+					}
+				},
+				"additionalProperties": false
+			},
+			"AgendamentoDTO": {
+				"type": "object",
+				"properties": {
+					"uuid_agendamento": {
+						"type": "string",
+						"nullable": true
+					},
+					"codigo_servico": {
+						"type": "string",
+						"nullable": true
+					},
+					"aulas": {
+						"type": "array",
+						"items": {
+							"$ref": "#/components/schemas/AulaDTO"
+						},
+						"nullable": true
+					},
+					"cfc": {
+						"$ref": "#/components/schemas/CfcAgendamento"
+					}
+				},
+				"additionalProperties": false
+			},
+			"AulaAgendamento": {
+				"type": "object",
+				"properties": {
+					"uuid": {
+						"type": "string",
+						"nullable": true
+					}
+				},
+				"additionalProperties": false
+			},
+			"AulaDTO": {
+				"type": "object",
+				"properties": {
+					"uuid": {
+						"type": "string",
+						"nullable": true
+					},
+					"curso": {
+						"type": "string",
+						"nullable": true
+					},
+					"periodo": {
+						"$ref": "#/components/schemas/Periodo"
+					},
+					"numero": {
+						"type": "integer",
+						"format": "int64"
+					},
+					"conteudo": {
+						"type": "string",
+						"nullable": true
+					},
+					"instrutor": {
+						"$ref": "#/components/schemas/InstrutorAula"
+					}
+				},
+				"additionalProperties": false
+			},
+			"CFCInstrutor": {
+				"type": "object",
+				"properties": {
+					"cnpj": {
+						"type": "string",
+						"nullable": true
+					}
+				},
+				"additionalProperties": false
+			},
+			"CancelamentoAgendamentoDto": {
+				"type": "object",
+				"properties": {
+					"_id": {
+						"type": "string",
+						"nullable": true
+					},
+					"operacao": {
+						"type": "string",
+						"nullable": true
+					},
+					"data_hora": {
+						"type": "string",
+						"nullable": true
+					},
+					"agendamento": {
+						"$ref": "#/components/schemas/AgendamentoCancel"
+					}
+				},
+				"additionalProperties": false
+			},
+			"CandidatoAgendamento": {
+				"type": "object",
+				"properties": {
+					"cpf": {
+						"type": "string",
+						"nullable": true
+					}
+				},
+				"additionalProperties": false
+			},
+			"CfcAgendamento": {
+				"type": "object",
+				"properties": {
+					"cnpj": {
+						"type": "string",
+						"nullable": true
+					}
+				},
+				"additionalProperties": false
+			},
+			"CfcData": {
+				"type": "object",
+				"properties": {
+					"cnpj": {
+						"type": "string",
+						"nullable": true
+					},
+					"uuid": {
+						"type": "string",
+						"nullable": true
+					},
+					"razao_social": {
+						"type": "string",
+						"nullable": true
+					},
+					"detran": {
+						"$ref": "#/components/schemas/Detran"
+					}
+				},
+				"additionalProperties": false
+			},
+			"Detran": {
+				"type": "object",
+				"properties": {
+					"codigo": {
+						"type": "string",
+						"nullable": true
+					},
+					"codigo_filial": {
+						"type": "string",
+						"nullable": true
+					}
+				},
+				"additionalProperties": false
+			},
+			"InstrutorAula": {
+				"type": "object",
+				"properties": {
+					"cpf": {
+						"type": "string",
+						"nullable": true
+					}
+				},
+				"additionalProperties": false
+			},
+			"InstrutorDTO": {
+				"type": "object",
+				"properties": {
+					"uuid": {
+						"type": "string",
+						"nullable": true
+					},
+					"nome": {
+						"type": "string",
+						"nullable": true
+					},
+					"cpf": {
+						"type": "string",
+						"nullable": true
+					},
+					"email": {
+						"type": "string",
+						"nullable": true
+					}
+				},
+				"additionalProperties": false
+			},
+			"MatriculaCandidatoDto": {
+				"type": "object",
+				"properties": {
+					"nome": {
+						"type": "string",
+						"nullable": true
+					},
+					"cpf": {
+						"type": "string",
+						"nullable": true
+					}
+				},
+				"additionalProperties": false
+			},
+			"MatriculaCfcDto": {
+				"type": "object",
+				"properties": {
+					"cnpj": {
+						"type": "string",
+						"nullable": true
+					}
+				},
+				"additionalProperties": false
+			},
+			"MatriculaDetranDto": {
+				"type": "object",
+				"properties": {
+					"renach": {
+						"type": "string",
+						"nullable": true
+					},
+					"situacao": {
+						"type": "string",
+						"nullable": true
+					}
+				},
+				"additionalProperties": false
+			},
+			"MatriculaDto": {
+				"type": "object",
+				"properties": {
+					"uuid": {
+						"type": "string",
+						"nullable": true
+					},
+					"candidato": {
+						"$ref": "#/components/schemas/MatriculaCandidatoDto"
+					},
+					"detran": {
+						"$ref": "#/components/schemas/MatriculaDetranDto"
+					},
+					"financeiro": {
+						"$ref": "#/components/schemas/MatriculaFinanceiroDto"
+					}
+				},
+				"additionalProperties": false
+			},
+			"MatriculaFinanceiroDto": {
+				"type": "object",
+				"properties": {
+					"situacao": {
+						"type": "string",
+						"nullable": true
+					},
+					"numero_cobranca": {
+						"type": "string",
+						"nullable": true
+					},
+					"operadora": {
+						"type": "string",
+						"nullable": true
+					},
+					"data_vencimento": {
+						"type": "string",
+						"nullable": true
+					},
+					"data_criacao": {
+						"type": "string",
+						"nullable": true
+					},
+					"data_atualizacao": {
+						"type": "string",
+						"nullable": true
+					},
+					"statusAtual": {
+						"type": "string",
+						"nullable": true
+					},
+					"valor": {
+						"type": "number",
+						"format": "double",
+						"nullable": true
+					}
+				},
+				"additionalProperties": false
+			},
+			"Periodo": {
+				"type": "object",
+				"properties": {
+					"inicio": {
+						"type": "string",
+						"nullable": true
+					},
+					"fim": {
+						"type": "string",
+						"nullable": true
+					}
+				},
+				"additionalProperties": false
+			},
+			"Token": {
+				"required": [
+					"acessToken"
+				],
+				"type": "object",
+				"properties": {
+					"acessToken": {
+						"minLength": 1,
+						"type": "string"
+					}
+				},
+				"additionalProperties": false
+			}
+		},
+		"securitySchemes": {
+			"Bearer": {
+				"type": "apiKey",
+				"name": "Authorization",
+				"in": "header"
+			}
+		}
+	},
+	"security": [
+		{
+			"Bearer": []
 		}
 	]
 }
