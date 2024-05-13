@@ -1,0 +1,70 @@
+{
+	"info": {
+		"_postman_id": "076188c8-8d85-42fe-8503-ac82851b230e",
+		"name": "Teleaula",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "32861696"
+	},
+	"item": [
+		{
+			"name": "Agendamento",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"{\r",
+							"  \"_id\": \"string\",\r",
+							"  \"operacao\": \"string\",\r",
+							"  \"data_hora\": \"string\",\r",
+							"  \"agendamento\": {\r",
+							"    \"uuid_agendamento\": \"string\",\r",
+							"    \"codigo_servico\": \"string\",\r",
+							"    \"aulas\": [\r",
+							"      {\r",
+							"        \"uuid\": \"string\",\r",
+							"        \"curso\": \"string\",\r",
+							"        \"periodo\": {\r",
+							"          \"inicio\": \"string\",\r",
+							"          \"fim\": \"string\"\r",
+							"        },\r",
+							"        \"numero\": 0,\r",
+							"        \"conteudo\": \"string\",\r",
+							"        \"instrutor\": {\r",
+							"          \"cpf\": \"string\"\r",
+							"        }\r",
+							"      }\r",
+							"    ],\r",
+							"    \"cfc\": {\r",
+							"      \"cnpj\": \"string\"\r",
+							"    }\r",
+							"  }\r",
+							"}"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "https://teleaulaapi-dev.renova.app.br/api/Agendamento",
+					"protocol": "https",
+					"host": [
+						"teleaulaapi-dev",
+						"renova",
+						"app",
+						"br"
+					],
+					"path": [
+						"api",
+						"Agendamento"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

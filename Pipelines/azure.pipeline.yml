@@ -1,0 +1,143 @@
+trigger:
+  - main
+  
+resources:
+  containers:
+    - container: azurite
+      image: mcr.microsoft.com/azure-storage/azurite
+      networks: 
+      - testes
+      ports:
+        - 10001:10001
+        - 10002:10002
+        - 10003:10003
+
+variables:
+  vmImageName: 'ubuntu-latest'
+  buildConfiguration: 'Release'
+  artifactFunctionApp: 'functionAppFinancas'
+  functionAppProject: '**/FunctionAppFinancas.csproj'
+  pathFunctionApp: './FunctionAppFinancas'
+  fileLogExecutionFunctionApp: 'log-execucao-functionapp.log'
+  AzureWebJobsStorage: 'UseDevelopmentStorage=true'
+  testsDirectory: './Tests'
+  collectionPostmanFile: 'CalculoJurosCompostosFunctionApp.postman_collection.json'
+  dataPostmanTestsFile: 'data-tests.json'
+
+stages:
+- stage: Tests
+  displayName: Testes da Function App
+  jobs:
+  - job: Tests
+    displayName: Testes da Function App em .NET
+    pool:
+      vmImage: $(vmImageName)
+    services:
+      azurite: azurite
+    steps:
+    - script: docker container ls
+      displayName: Exibir containers em execução
+    - task: UseDotNet@2
+      displayName: Instalação do .NET 6
+      inputs:
+        packageType: 'sdk'
+        version: '6.0.101'
+    - script: |
+        npm i azure-functions-core-tools@4
+        npx func
+      displayName: Instalar Azure Functions Core Tools v4
+    - script: |
+        cd $(pathFunctionApp)
+        dotnet build --configuration Debug
+        nohup npx func start > $(fileLogExecutionFunctionApp) 2>&1 &
+        echo 'Aguardando a inicialização da Function App...'
+        sleep 25s
+      displayName: Executar a Function App
+      env:
+        AzureWebJobsStorage: $(AzureWebJobsStorage)
+    - script: |
+        cd $(testsDirectory)
+        ls
+        newman run $(collectionPostmanFile) -d $(dataPostmanTestsFile)
+      displayName: Testes da API REST com Newman
+    - task: CreateWorkItem@1
+      displayName: Criar Work Item (Issue) no Azure Boards
+      inputs:
+        workItemType: 'issue'
+        title: 'Falha nos testes do Pipeline: $(Build.DefinitionName) | Build: $(Build.BuildNumber)'
+        fieldMappings: 'Description="Falha na execução de testes baseados em Postman/Newman"'
+      condition: failed()
+    - script: |
+        echo "** Versão Global do Newman **"
+        newman -v
+        npm install newman-reporter-htmlextra@1.22.3
+      displayName:  Instalar packages para uso newman-reporter-htmlextra
+      condition: always() 
+    - script: |
+        cd $(testsDirectory)
+        npx newman run $(collectionPostmanFile) -d $(dataPostmanTestsFile) --reporters htmlextra --reporter-htmlextra-export ./newman/test-results.html
+        cd ./newman
+        ls
+      displayName: Gerar resultados em HTML dos testes da API REST com Newman
+      condition: always() 
+    - task: UploadPostmanHtmlReport@1
+      displayName: Publicar relatório em HTML com resultados dos testes da API REST com Newman
+      inputs:
+        cwd: '$(System.DefaultWorkingDirectory)/$(testsDirectory)'
+      condition: always() 
+    - script: |
+        cd $(pathFunctionApp)
+        cat $(fileLogExecutionFunctionApp)
+      condition: Always()
+      displayName: Exibir log de execução da Function App
+
+- stage: Build
+  displayName: Build da Function App
+  dependsOn: Tests
+  jobs:
+  - job: Build
+    displayName: Build da Function App em .NET
+    pool:
+      vmImage: $(vmImageName)
+    steps:
+    - task: UseDotNet@2
+      displayName: Instalação do .NET 6
+      inputs:
+        packageType: 'sdk'
+        version: '6.0.101'
+    - task: DotNetCoreCLI@2
+      displayName: Build + Publish gerando Artifact
+      inputs:
+        command: 'publish'
+        publishWebProjects: false
+        projects: '$(functionAppProject)'
+        arguments: '--configuration $(buildConfiguration) --output $(Build.ArtifactStagingDirectory)'
+    - task: PublishPipelineArtifact@1
+      displayName: Publish do Artifact
+      inputs:
+        targetPath: '$(Build.ArtifactStagingDirectory)' 
+        artifactName: $(artifactFunctionApp)
+
+- stage: Deployment
+  displayName: Deployment da Function App em Linux
+  dependsOn: Build
+  jobs:
+  - job: Deployment
+    displayName: Deployment da Function App no Azure
+    pool:
+      vmImage: $(vmImageName)
+    steps:
+    - task: DownloadPipelineArtifact@2
+      displayName: Download do Artifact gerado no stage de Build
+      inputs:
+        buildType: 'current'
+        artifactName: $(artifactFunctionApp)
+        targetPath: '$(System.DefaultWorkingDirectory)/publish'
+    - task: AzureFunctionApp@1
+      displayName: Deployment da Function App no Azure em Linux
+      inputs:
+        azureSubscription: 'AZURE SUBSCRIPTION'
+        appType: 'functionAppLinux'
+        appName: 'NOME DA FUNCTION APP'
+        package: '$(System.DefaultWorkingDirectory)/**/*.zip'
+        appSettings: '-FUNCTIONS_WORKER_RUNTIME "dotnet-isolated"'
