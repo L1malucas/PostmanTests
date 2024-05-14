@@ -1,681 +1,572 @@
 {
-	"openapi": "3.0.1",
 	"info": {
-		"title": "sindautoAPI",
-		"version": "v1"
+		"_postman_id": "71a92441-1991-4830-8286-15214b23336b",
+		"name": "sindautoAPI",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "32861696"
 	},
-	"paths": {
-		"/api/Agendamento": {
-			"post": {
-				"tags": [
-					"Agendamento"
-				],
-				"requestBody": {
-					"content": {
-						"application/json": {
-							"schema": {
-								"$ref": "#/components/schemas/AddAgendamentoDTO"
-							}
-						},
-						"text/json": {
-							"schema": {
-								"$ref": "#/components/schemas/AddAgendamentoDTO"
-							}
-						},
-						"application/*+json": {
-							"schema": {
-								"$ref": "#/components/schemas/AddAgendamentoDTO"
-							}
-						}
-					}
-				},
-				"responses": {
-					"200": {
-						"description": "Success"
-					}
-				}
-			}
-		},
-		"/api/Agendamento/Cancelar": {
-			"post": {
-				"tags": [
-					"Agendamento"
-				],
-				"requestBody": {
-					"content": {
-						"application/json": {
-							"schema": {
-								"$ref": "#/components/schemas/CancelamentoAgendamentoDto"
-							}
-						},
-						"text/json": {
-							"schema": {
-								"$ref": "#/components/schemas/CancelamentoAgendamentoDto"
-							}
-						},
-						"application/*+json": {
-							"schema": {
-								"$ref": "#/components/schemas/CancelamentoAgendamentoDto"
-							}
-						}
-					}
-				},
-				"responses": {
-					"200": {
-						"description": "Success"
-					}
-				}
-			}
-		},
-		"/api/v1/Auth": {
-			"post": {
-				"tags": [
-					"Auth"
-				],
-				"requestBody": {
-					"content": {
-						"application/json": {
-							"schema": {
-								"$ref": "#/components/schemas/Token"
-							}
-						},
-						"text/json": {
-							"schema": {
-								"$ref": "#/components/schemas/Token"
-							}
-						},
-						"application/*+json": {
-							"schema": {
-								"$ref": "#/components/schemas/Token"
-							}
-						}
-					}
-				},
-				"responses": {
-					"200": {
-						"description": "Success"
-					}
-				}
-			}
-		},
-		"/api/Candidato": {
-			"post": {
-				"tags": [
-					"Candidato"
-				],
-				"requestBody": {
-					"content": {
-						"application/json": {
-							"schema": {
-								"$ref": "#/components/schemas/AdicionarCandidatoDTO"
-							}
-						},
-						"text/json": {
-							"schema": {
-								"$ref": "#/components/schemas/AdicionarCandidatoDTO"
-							}
-						},
-						"application/*+json": {
-							"schema": {
-								"$ref": "#/components/schemas/AdicionarCandidatoDTO"
-							}
-						}
-					}
-				},
-				"responses": {
-					"200": {
-						"description": "Success"
-					}
-				}
-			}
-		},
-		"/api/CFC": {
-			"post": {
-				"tags": [
-					"CFC"
-				],
-				"requestBody": {
-					"content": {
-						"application/json": {
-							"schema": {
-								"$ref": "#/components/schemas/AddCfcDTO"
-							}
-						},
-						"text/json": {
-							"schema": {
-								"$ref": "#/components/schemas/AddCfcDTO"
-							}
-						},
-						"application/*+json": {
-							"schema": {
-								"$ref": "#/components/schemas/AddCfcDTO"
-							}
-						}
-					}
-				},
-				"responses": {
-					"200": {
-						"description": "Success"
-					}
-				}
-			}
-		},
-		"/api/Instrutor": {
-			"post": {
-				"tags": [
-					"Instrutor"
-				],
-				"requestBody": {
-					"content": {
-						"application/json": {
-							"schema": {
-								"$ref": "#/components/schemas/AddInstrutorDTO"
-							}
-						},
-						"text/json": {
-							"schema": {
-								"$ref": "#/components/schemas/AddInstrutorDTO"
-							}
-						},
-						"application/*+json": {
-							"schema": {
-								"$ref": "#/components/schemas/AddInstrutorDTO"
-							}
-						}
-					}
-				},
-				"responses": {
-					"200": {
-						"description": "Success"
-					}
-				}
-			}
-		},
-		"/api/Matricula": {
-			"post": {
-				"tags": [
-					"Matricula"
-				],
-				"requestBody": {
-					"content": {
-						"application/json": {
-							"schema": {
-								"$ref": "#/components/schemas/AddMatriculaDTO"
-							}
-						},
-						"text/json": {
-							"schema": {
-								"$ref": "#/components/schemas/AddMatriculaDTO"
-							}
-						},
-						"application/*+json": {
-							"schema": {
-								"$ref": "#/components/schemas/AddMatriculaDTO"
-							}
-						}
-					}
-				},
-				"responses": {
-					"200": {
-						"description": "Success"
-					}
-				}
-			}
-		},
-		"/api/Test/ListarCursos": {
-			"get": {
-				"tags": [
-					"Test"
-				],
-				"responses": {
-					"200": {
-						"description": "Success"
-					}
-				}
-			}
-		}
-	},
-	"components": {
-		"schemas": {
-			"AddAgendamentoDTO": {
-				"type": "object",
-				"properties": {
-					"_id": {
-						"type": "string",
-						"nullable": true
-					},
-					"operacao": {
-						"type": "string",
-						"nullable": true
-					},
-					"data_hora": {
-						"type": "string",
-						"nullable": true
-					},
-					"agendamento": {
-						"$ref": "#/components/schemas/AgendamentoDTO"
-					}
-				},
-				"additionalProperties": false
-			},
-			"AddCfcDTO": {
-				"type": "object",
-				"properties": {
-					"_id": {
-						"type": "string",
-						"nullable": true
-					},
-					"operacao": {
-						"type": "string",
-						"nullable": true
-					},
-					"data_hora": {
-						"type": "string",
-						"nullable": true
-					},
-					"cfc": {
-						"$ref": "#/components/schemas/CfcData"
-					}
-				},
-				"additionalProperties": false
-			},
-			"AddInstrutorDTO": {
-				"type": "object",
-				"properties": {
-					"_id": {
-						"type": "string",
-						"nullable": true
-					},
-					"operacao": {
-						"type": "string",
-						"nullable": true
-					},
-					"instrutor": {
-						"$ref": "#/components/schemas/InstrutorDTO"
-					},
-					"data_hora": {
-						"type": "string",
-						"nullable": true
-					},
-					"cfc": {
-						"$ref": "#/components/schemas/CFCInstrutor"
-					}
-				},
-				"additionalProperties": false
-			},
-			"AddMatriculaDTO": {
-				"type": "object",
-				"properties": {
-					"_id": {
-						"type": "string",
-						"nullable": true
-					},
-					"operacao": {
-						"type": "string",
-						"nullable": true
-					},
-					"data_hora": {
-						"type": "string",
-						"nullable": true
-					},
-					"matricula": {
-						"$ref": "#/components/schemas/MatriculaDto"
-					},
-					"cfc": {
-						"$ref": "#/components/schemas/MatriculaCfcDto"
-					}
-				},
-				"additionalProperties": false
-			},
-			"AdicionarCandidatoDTO": {
-				"type": "object",
-				"properties": {
-					"_id": {
-						"type": "string",
-						"nullable": true
-					},
-					"operacao": {
-						"type": "string",
-						"nullable": true
-					},
-					"data_hora": {
-						"type": "string",
-						"nullable": true
-					},
-					"aula": {
-						"$ref": "#/components/schemas/AulaAgendamento"
-					},
-					"candidato": {
-						"$ref": "#/components/schemas/CandidatoAgendamento"
-					}
-				},
-				"additionalProperties": false
-			},
-			"AgendamentoCancel": {
-				"type": "object",
-				"properties": {
-					"uuid_agendamento": {
-						"type": "string",
-						"nullable": true
-					}
-				},
-				"additionalProperties": false
-			},
-			"AgendamentoDTO": {
-				"type": "object",
-				"properties": {
-					"uuid_agendamento": {
-						"type": "string",
-						"nullable": true
-					},
-					"codigo_servico": {
-						"type": "string",
-						"nullable": true
-					},
-					"aulas": {
-						"type": "array",
-						"items": {
-							"$ref": "#/components/schemas/AulaDTO"
-						},
-						"nullable": true
-					},
-					"cfc": {
-						"$ref": "#/components/schemas/CfcAgendamento"
-					}
-				},
-				"additionalProperties": false
-			},
-			"AulaAgendamento": {
-				"type": "object",
-				"properties": {
-					"uuid": {
-						"type": "string",
-						"nullable": true
-					}
-				},
-				"additionalProperties": false
-			},
-			"AulaDTO": {
-				"type": "object",
-				"properties": {
-					"uuid": {
-						"type": "string",
-						"nullable": true
-					},
-					"curso": {
-						"type": "string",
-						"nullable": true
-					},
-					"periodo": {
-						"$ref": "#/components/schemas/Periodo"
-					},
-					"numero": {
-						"type": "integer",
-						"format": "int64"
-					},
-					"conteudo": {
-						"type": "string",
-						"nullable": true
-					},
-					"instrutor": {
-						"$ref": "#/components/schemas/InstrutorAula"
-					}
-				},
-				"additionalProperties": false
-			},
-			"CFCInstrutor": {
-				"type": "object",
-				"properties": {
-					"cnpj": {
-						"type": "string",
-						"nullable": true
-					}
-				},
-				"additionalProperties": false
-			},
-			"CancelamentoAgendamentoDto": {
-				"type": "object",
-				"properties": {
-					"_id": {
-						"type": "string",
-						"nullable": true
-					},
-					"operacao": {
-						"type": "string",
-						"nullable": true
-					},
-					"data_hora": {
-						"type": "string",
-						"nullable": true
-					},
-					"agendamento": {
-						"$ref": "#/components/schemas/AgendamentoCancel"
-					}
-				},
-				"additionalProperties": false
-			},
-			"CandidatoAgendamento": {
-				"type": "object",
-				"properties": {
-					"cpf": {
-						"type": "string",
-						"nullable": true
-					}
-				},
-				"additionalProperties": false
-			},
-			"CfcAgendamento": {
-				"type": "object",
-				"properties": {
-					"cnpj": {
-						"type": "string",
-						"nullable": true
-					}
-				},
-				"additionalProperties": false
-			},
-			"CfcData": {
-				"type": "object",
-				"properties": {
-					"cnpj": {
-						"type": "string",
-						"nullable": true
-					},
-					"uuid": {
-						"type": "string",
-						"nullable": true
-					},
-					"razao_social": {
-						"type": "string",
-						"nullable": true
-					},
-					"detran": {
-						"$ref": "#/components/schemas/Detran"
-					}
-				},
-				"additionalProperties": false
-			},
-			"Detran": {
-				"type": "object",
-				"properties": {
-					"codigo": {
-						"type": "string",
-						"nullable": true
-					},
-					"codigo_filial": {
-						"type": "string",
-						"nullable": true
-					}
-				},
-				"additionalProperties": false
-			},
-			"InstrutorAula": {
-				"type": "object",
-				"properties": {
-					"cpf": {
-						"type": "string",
-						"nullable": true
-					}
-				},
-				"additionalProperties": false
-			},
-			"InstrutorDTO": {
-				"type": "object",
-				"properties": {
-					"uuid": {
-						"type": "string",
-						"nullable": true
-					},
-					"nome": {
-						"type": "string",
-						"nullable": true
-					},
-					"cpf": {
-						"type": "string",
-						"nullable": true
-					},
-					"email": {
-						"type": "string",
-						"nullable": true
-					}
-				},
-				"additionalProperties": false
-			},
-			"MatriculaCandidatoDto": {
-				"type": "object",
-				"properties": {
-					"nome": {
-						"type": "string",
-						"nullable": true
-					},
-					"cpf": {
-						"type": "string",
-						"nullable": true
-					}
-				},
-				"additionalProperties": false
-			},
-			"MatriculaCfcDto": {
-				"type": "object",
-				"properties": {
-					"cnpj": {
-						"type": "string",
-						"nullable": true
-					}
-				},
-				"additionalProperties": false
-			},
-			"MatriculaDetranDto": {
-				"type": "object",
-				"properties": {
-					"renach": {
-						"type": "string",
-						"nullable": true
-					},
-					"situacao": {
-						"type": "string",
-						"nullable": true
-					}
-				},
-				"additionalProperties": false
-			},
-			"MatriculaDto": {
-				"type": "object",
-				"properties": {
-					"uuid": {
-						"type": "string",
-						"nullable": true
-					},
-					"candidato": {
-						"$ref": "#/components/schemas/MatriculaCandidatoDto"
-					},
-					"detran": {
-						"$ref": "#/components/schemas/MatriculaDetranDto"
-					},
-					"financeiro": {
-						"$ref": "#/components/schemas/MatriculaFinanceiroDto"
-					}
-				},
-				"additionalProperties": false
-			},
-			"MatriculaFinanceiroDto": {
-				"type": "object",
-				"properties": {
-					"situacao": {
-						"type": "string",
-						"nullable": true
-					},
-					"numero_cobranca": {
-						"type": "string",
-						"nullable": true
-					},
-					"operadora": {
-						"type": "string",
-						"nullable": true
-					},
-					"data_vencimento": {
-						"type": "string",
-						"nullable": true
-					},
-					"data_criacao": {
-						"type": "string",
-						"nullable": true
-					},
-					"data_atualizacao": {
-						"type": "string",
-						"nullable": true
-					},
-					"statusAtual": {
-						"type": "string",
-						"nullable": true
-					},
-					"valor": {
-						"type": "number",
-						"format": "double",
-						"nullable": true
-					}
-				},
-				"additionalProperties": false
-			},
-			"Periodo": {
-				"type": "object",
-				"properties": {
-					"inicio": {
-						"type": "string",
-						"nullable": true
-					},
-					"fim": {
-						"type": "string",
-						"nullable": true
-					}
-				},
-				"additionalProperties": false
-			},
-			"Token": {
-				"required": [
-					"acessToken"
-				],
-				"type": "object",
-				"properties": {
-					"acessToken": {
-						"minLength": 1,
-						"type": "string"
-					}
-				},
-				"additionalProperties": false
-			}
-		},
-		"securitySchemes": {
-			"Bearer": {
-				"type": "apiKey",
-				"name": "Authorization",
-				"in": "header"
-			}
-		}
-	},
-	"security": [
+	"item": [
 		{
-			"Bearer": []
+			"name": "api",
+			"item": [
+				{
+					"name": "Agendamento",
+					"item": [
+						{
+							"name": "/api/Agendamento",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"_id\": \"<string>\",\n  \"operacao\": \"<string>\",\n  \"data_hora\": \"<string>\",\n  \"agendamento\": {\n    \"uuid_agendamento\": \"<string>\",\n    \"codigo_servico\": \"<string>\",\n    \"aulas\": [\n      {\n        \"uuid\": \"<string>\",\n        \"curso\": \"<string>\",\n        \"periodo\": {\n          \"inicio\": \"<string>\",\n          \"fim\": \"<string>\"\n        },\n        \"numero\": \"<long>\",\n        \"conteudo\": \"<string>\",\n        \"instrutor\": {\n          \"cpf\": \"<string>\"\n        }\n      },\n      {\n        \"uuid\": \"<string>\",\n        \"curso\": \"<string>\",\n        \"periodo\": {\n          \"inicio\": \"<string>\",\n          \"fim\": \"<string>\"\n        },\n        \"numero\": \"<long>\",\n        \"conteudo\": \"<string>\",\n        \"instrutor\": {\n          \"cpf\": \"<string>\"\n        }\n      }\n    ],\n    \"cfc\": {\n      \"cnpj\": \"<string>\"\n    }\n  }\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/api/Agendamento",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"Agendamento"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Success",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"description": "Added as a part of security scheme: apikey",
+												"key": "Authorization",
+												"value": "<API Key>"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"_id\": \"<string>\",\n  \"operacao\": \"<string>\",\n  \"data_hora\": \"<string>\",\n  \"agendamento\": {\n    \"uuid_agendamento\": \"<string>\",\n    \"codigo_servico\": \"<string>\",\n    \"aulas\": [\n      {\n        \"uuid\": \"<string>\",\n        \"curso\": \"<string>\",\n        \"periodo\": {\n          \"inicio\": \"<string>\",\n          \"fim\": \"<string>\"\n        },\n        \"numero\": \"<long>\",\n        \"conteudo\": \"<string>\",\n        \"instrutor\": {\n          \"cpf\": \"<string>\"\n        }\n      },\n      {\n        \"uuid\": \"<string>\",\n        \"curso\": \"<string>\",\n        \"periodo\": {\n          \"inicio\": \"<string>\",\n          \"fim\": \"<string>\"\n        },\n        \"numero\": \"<long>\",\n        \"conteudo\": \"<string>\",\n        \"instrutor\": {\n          \"cpf\": \"<string>\"\n        }\n      }\n    ],\n    \"cfc\": {\n      \"cnpj\": \"<string>\"\n    }\n  }\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/api/Agendamento",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"Agendamento"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "text",
+									"header": [],
+									"cookie": [],
+									"body": ""
+								}
+							]
+						}
+					],
+					"description": "Este controlador gerencia as operações relacionadas aos agendamentos.\n\n### Endpoints\n\n#### Agendar\n\nPermite agendar uma aula.\n\n- **URL**\n\n  `POST /api/Agendamento`\n\n  - **Parâmetros do Corpo (JSON)**\n\n  - `operacao`: Operação a ser realizada (AGENDADO)\n  - Demais parâmetros conforme o DTO `AddAgendamentoDTO`\n\n- **Cabeçalho**\n\n  `Authorization: Bearer [sua_chave_de_autenticação]`\n\n- **Respostas**\n\n  - 200 OK: Operação realizada com sucesso.\n  - 400 Bad Request: Problema com os dados fornecidos ou operação inválida.\n  - 401 Unauthorized: Falha na autenticação.\n\n- **Parâmetros do Corpo (JSON)**\n\n  ```json\n  {\n    \"_id\": \"string\",\n    \"operacao\": \"string\",\n    \"data_hora\": \"string\",\n    \"agendamento\": {\n      \"uuid_agendamento\": \"string\",\n      \"codigo_servico\": \"string\",\n      \"aulas\": [\n        {\n          \"uuid\": \"string\",\n          \"curso\": \"string\",\n          \"periodo\": {\n            \"inicio\": \"string\",\n            \"fim\": \"string\"\n          },\n          \"numero\": \"string\",\n          \"conteudo\": \"string\",\n          \"instrutor\": {\n            \"cpf\": \"string\"\n          }\n        }\n      ],\n      \"cfc\": {\n        \"cnpj\": \"string\"\n      }\n    }\n  }\n  ```\n"
+				},
+				{
+					"name": "Candidato",
+					"item": [
+						{
+							"name": "/api/Candidato",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"_id\": \"<string>\",\n  \"operacao\": \"<string>\",\n  \"data_hora\": \"<string>\",\n  \"aula\": {\n    \"uuid\": \"<string>\"\n  },\n  \"candidato\": {\n    \"cpf\": \"<string>\"\n  }\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/api/Candidato",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"Candidato"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Success",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"description": "Added as a part of security scheme: apikey",
+												"key": "Authorization",
+												"value": "<API Key>"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"_id\": \"<string>\",\n  \"operacao\": \"<string>\",\n  \"data_hora\": \"<string>\",\n  \"aula\": {\n    \"uuid\": \"<string>\"\n  },\n  \"candidato\": {\n    \"cpf\": \"<string>\"\n  }\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/api/Candidato",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"Candidato"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "text",
+									"header": [],
+									"cookie": [],
+									"body": ""
+								}
+							]
+						}
+					],
+					"description": "Este controlador gerencia as operações relacionadas aos candidatos.\n\n### Endpoints\n\n#### Adicionar/Remover Candidato\n\nPermite adicionar ou remover um candidato de uma aula agendada.\n\n- **URL**\n\n  `POST /api/Candidato`\n\n  - **Parâmetros do Corpo (JSON)**\n\n  - `operacao`: Operação a ser realizada (VINCULADO, DESVINCULADO)\n  - Demais parâmetros conforme o DTO `AdicionarCandidatoDTO`\n\n- **Parâmetros do Corpo (JSON)**\n\n  ```json\n  {\n    \"_id\": \"string\",\n    \"operacao\": \"string\",\n    \"data_hora\": \"string\",\n    \"aula\": {\n      \"uuid\": \"string\"\n    },\n    \"candidato\": {\n      \"cpf\": \"string\"\n    }\n  }\n  ```\n"
+				},
+				{
+					"name": "CFC",
+					"item": [
+						{
+							"name": "/api/CFC",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"_id\": \"<string>\",\n  \"operacao\": \"<string>\",\n  \"data_hora\": \"<string>\",\n  \"cfc\": {\n    \"cnpj\": \"<string>\",\n    \"uuid\": \"<string>\",\n    \"razao_social\": \"<string>\",\n    \"detran\": {\n      \"codigo\": \"<string>\",\n      \"codigo_filial\": \"<string>\"\n    }\n  }\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/api/CFC",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"CFC"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Success",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"description": "Added as a part of security scheme: apikey",
+												"key": "Authorization",
+												"value": "<API Key>"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"_id\": \"<string>\",\n  \"operacao\": \"<string>\",\n  \"data_hora\": \"<string>\",\n  \"cfc\": {\n    \"cnpj\": \"<string>\",\n    \"uuid\": \"<string>\",\n    \"razao_social\": \"<string>\",\n    \"detran\": {\n      \"codigo\": \"<string>\",\n      \"codigo_filial\": \"<string>\"\n    }\n  }\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/api/CFC",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"CFC"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "text",
+									"header": [],
+									"cookie": [],
+									"body": ""
+								}
+							]
+						}
+					],
+					"description": "Este controlador gerencia as operações relacionadas aos Centros de Formação de Condutores (CFCs).\n\n### Endpoints\n\n#### Adicionar/Atualizar/Remover CFC\n\nPermite adicionar, atualizar ou remover um CFC.\n\n- **URL**\n\n  `POST /api/CFC`\n\n- **Parâmetros do Corpo (JSON)**\n\n  - `operacao`: Operação a ser realizada (CADASTRO, EDICAO, EXCLUSAO)\n  - Demais parâmetros conforme o DTO `AddCfcDTO`\n\n- **Cabeçalho**\n\n  `Authorization: Bearer [sua_chave_de_autenticação]`\n\n- **Respostas**\n\n  - 200 OK: Operação realizada com sucesso.\n  - 400 Bad Request: Problema com os dados fornecidos ou operação inválida.\n  - 401 Unauthorized: Falha na autenticação.\n\n- **Exemplo de Corpo da Requisição (JSON)**\n\n  ```json\n  {\n    \"_id\": \"string\",\n    \"operacao\": \"string\",\n    \"data_hora\": \"string\",\n    \"cfc\": {\n      \"cnpj\": \"string\",\n      \"uuid\": \"string\",\n      \"razao_social\": \"string\",\n      \"detran\": {\n        \"codigo\": \"string\",\n        \"codigo_filial\": \"string\"\n      }\n    }\n  }\n  ```\n"
+				},
+				{
+					"name": "Instrutor",
+					"item": [
+						{
+							"name": "/api/Instrutor",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"_id\": \"<string>\",\n  \"operacao\": \"<string>\",\n  \"instrutor\": {\n    \"uuid\": \"<string>\",\n    \"nome\": \"<string>\",\n    \"cpf\": \"<string>\",\n    \"email\": \"<string>\"\n  },\n  \"data_hora\": \"<string>\",\n  \"cfc\": {\n    \"cnpj\": \"<string>\"\n  }\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/api/Instrutor",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"Instrutor"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Success",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"description": "Added as a part of security scheme: apikey",
+												"key": "Authorization",
+												"value": "<API Key>"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"_id\": \"<string>\",\n  \"operacao\": \"<string>\",\n  \"instrutor\": {\n    \"uuid\": \"<string>\",\n    \"nome\": \"<string>\",\n    \"cpf\": \"<string>\",\n    \"email\": \"<string>\"\n  },\n  \"data_hora\": \"<string>\",\n  \"cfc\": {\n    \"cnpj\": \"<string>\"\n  }\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/api/Instrutor",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"Instrutor"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "text",
+									"header": [],
+									"cookie": [],
+									"body": ""
+								}
+							]
+						}
+					],
+					"description": "Este controlador gerencia as operações relacionadas aos instrutores.\n\n### Endpoints\n\n#### Adicionar/Atualizar/Remover Instrutor\n\nPermite adicionar, atualizar ou remover um instrutor.\n\n- **URL**\n\n  `POST /api/Instrutor`\n\n  - **Parâmetros do Corpo (JSON)**\n\n  - `operacao`: Operação a ser realizada (CADASTRO, EDICAO, EXCLUSAO)\n  - Demais parâmetros conforme o DTO `AddInstrutorDTO`\n\n- **Cabeçalho**\n\n  `Authorization: Bearer [sua_chave_de_autenticação]`\n\n- **Respostas**\n\n  - 200 OK: Operação realizada com sucesso.\n  - 400 Bad Request: Problema com os dados fornecidos ou operação inválida.\n  - 401 Unauthorized: Falha na autenticação.\n\n- **Parâmetros do Corpo (JSON)**\n\n  ```json\n  {\n    \"_id\": \"string\",\n    \"operacao\": \"string\",\n    \"instrutor\": {\n      \"cpf\": \"string\",\n      \"nome\": \"string\",\n      \"endereco\": \"string\",\n      \"telefone\": \"string\"\n    },\n    \"data_hora\": \"string\",\n    \"cfc\": {\n      \"cnpj\": \"string\"\n    }\n  }\n  ```\n"
+				},
+				{
+					"name": "Matricula",
+					"item": [
+						{
+							"name": "/api/Matricula",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"_id\": \"<string>\",\n  \"operacao\": \"<string>\",\n  \"data_hora\": \"<string>\",\n  \"matricula\": {\n    \"uuid\": \"<string>\",\n    \"candidato\": {\n      \"nome\": \"<string>\",\n      \"cpf\": \"<string>\"\n    },\n    \"detran\": {\n      \"renach\": \"<string>\",\n      \"situacao\": \"<string>\"\n    },\n    \"financeiro\": {\n      \"situacao\": \"<string>\",\n      \"numero_cobranca\": \"<string>\",\n      \"operadora\": \"<string>\",\n      \"data_vencimento\": \"<string>\",\n      \"data_criacao\": \"<string>\",\n      \"data_atualizacao\": \"<string>\",\n      \"statusAtual\": \"<string>\",\n      \"valor\": \"<double>\"\n    }\n  },\n  \"cfc\": {\n    \"cnpj\": \"<string>\"\n  }\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/api/Matricula",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"Matricula"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Success",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"description": "Added as a part of security scheme: apikey",
+												"key": "Authorization",
+												"value": "<API Key>"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"_id\": \"<string>\",\n  \"operacao\": \"<string>\",\n  \"data_hora\": \"<string>\",\n  \"matricula\": {\n    \"uuid\": \"<string>\",\n    \"candidato\": {\n      \"nome\": \"<string>\",\n      \"cpf\": \"<string>\"\n    },\n    \"detran\": {\n      \"renach\": \"<string>\",\n      \"situacao\": \"<string>\"\n    },\n    \"financeiro\": {\n      \"situacao\": \"<string>\",\n      \"numero_cobranca\": \"<string>\",\n      \"operadora\": \"<string>\",\n      \"data_vencimento\": \"<string>\",\n      \"data_criacao\": \"<string>\",\n      \"data_atualizacao\": \"<string>\",\n      \"statusAtual\": \"<string>\",\n      \"valor\": \"<double>\"\n    }\n  },\n  \"cfc\": {\n    \"cnpj\": \"<string>\"\n  }\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/api/Matricula",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"Matricula"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "text",
+									"header": [],
+									"cookie": [],
+									"body": ""
+								}
+							]
+						}
+					],
+					"description": "Este controlador gerencia as operações relacionadas às matrículas.\n\n### Endpoints\n\n#### Gerenciar Matrícula\n\nPermite cadastrar, editar ou excluir uma matrícula.\n\n- **URL**\n\n  `POST /api/Matricula`\n\n  - **Parâmetros do Corpo (JSON)**\n\n  - `operacao`: Operação a ser realizada (CADASTRO, EDICAO, EXCLUSAO)\n  - Demais parâmetros conforme o DTO `AddMatriculaDTO`\n\n- **Parâmetros do Corpo (JSON)**\n\n  ```json\n  {\n    \"_id\": \"string\",\n    \"operacao\": \"string\",\n    \"data_hora\": \"string\",\n    \"matricula\": {\n      \"uuid\": \"string\",\n      \"candidato\": {\n        \"nome\": \"string\",\n        \"cpf\": \"string\"\n      },\n      \"detran\": {\n        \"renach\": \"string\",\n        \"situacao\": \"string\"\n      },\n      \"financeiro\": {\n        \"situacao\": \"string\",\n        \"numero_cobranca\": \"string\",\n        \"operadora\": \"string\",\n        \"data_vencimento\": \"string\",\n        \"data_criacao\": \"string\",\n        \"data_atualizacao\": \"string\",\n        \"statusAtual\": \"string\",\n        \"valor\": \"decimal\"\n      }\n    },\n    \"cfc\": {\n      \"cnpj\": \"string\"\n    }\n  }\n  ```\n"
+				},
+				{
+					"name": "Auth",
+					"item": [
+						{
+							"name": "/api/v1/Auth",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"acessToken\": \"87sK2jFh4Lp9qW6zXv3bCcV5mBn1M0zQ8lR6tY9eAs4D3fG2hJ8kI7uH3jK5gFn\"\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/api/v1/Auth",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"Auth"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Success",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"description": "Added as a part of security scheme: apikey",
+												"key": "Authorization",
+												"value": "<API Key>"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"acessToken\": \"<string>\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/api/v1/Auth",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"Auth"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "text",
+									"header": [],
+									"cookie": [],
+									"body": ""
+								}
+							]
+						}
+					],
+					"description": "Este controlador gerencia a autenticação e geração de tokens JWT.\n\n### Endpoints\n\n#### Obter Token de Autenticação\n\nPermite obter um token de autenticação válido.\n\n- **URL**\n\n  `POST /Auth/GetToken`\n\n- **Respostas**\n\n  - 200 OK: Operação realizada com sucesso.\n  - 400 Bad Request: Problema com os dados fornecidos ou operação inválida.\n  - 401 Unauthorized: Falha na autenticação.\n  - 500 Internal Server Error: Erro interno do servidor.\n\n- **Parâmetros do Corpo (JSON)**\n\n  ```json\n  {\n    \"accessToken\": \"string\"\n  }\n  ```\n"
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "apikey",
+		"apikey": [
+			{
+				"key": "value",
+				"value": "{{Token}}",
+				"type": "string"
+			},
+			{
+				"key": "key",
+				"value": "Authorization",
+				"type": "string"
+			},
+			{
+				"key": "in",
+				"value": "header",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "https://teleaulaapi-dev.renova.app.br"
+		},
+		{
+			"key": "apiKey",
+			"value": "87sK2jFh4Lp9qW6zXv3bCcV5mBn1M0zQ8lR6tY9eAs4D3fG2hJ8kI7uH3jK5gFn"
+		},
+		{
+			"key": "Token",
+			"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3MTU2NDA4MzUsImlzcyI6Iklzc3VlciIsImF1ZCI6IkF1ZGllbmNlIn0.200S9FxxglG_oqxrkbw-NBbZN_mbLapaF-88LB4ZWas",
+			"type": "string"
 		}
 	]
 }
