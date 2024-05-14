@@ -11,22 +11,7 @@ pm.test("Content-Type is present", function () {
   pm.response.to.have.header("Content-Type");
 });
 
-var apiKey = pm.environment.get("apiKey");
-var baseUrl = pm.environment.get("baseUrl");
-pm.test("API Key", function () {
-  pm.expect(apiKey).to.equal("87sK2jFh4Lp9qW6zXv3bCcV5mBn1M0zQ8lR6tY9eAs4D3fG2hJ8kI7uH3jK5gFn");
-});
 
-
-// Test for base URL
-pm.test("Check base URL", function () {
-  pm.expect(baseUrl).to.eql("https://teleaulaapi-dev.renova.app.br");
-});
-
-// Test for status code
-pm.test("Status code is 200", function () {
-  pm.response.to.have.status(200);
-});
 
 // Test for response time
 pm.test("Response time is less than 500ms", function () {

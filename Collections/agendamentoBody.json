@@ -1,0 +1,272 @@
+[
+  {
+    "_id": "1",
+    "operacao": "agendado",
+    "data_hora": "2024-12-09 10:20:00",
+    "agendamento": {
+      "uuid_agendamento": "11",
+      "codigo_servico": "31",
+      "aulas": [
+        {
+          "uuid": "90",
+          "curso": "DIREÇÃO DEFENSIVA",
+          "periodo": {
+            "inicio": "2024-12-22 07:00:00",
+            "fim": "2024-12-22 08:00:00"
+          },
+          "numero": 12,
+          "conteudo": "Verificação diária dos itens básicos: água, óleo, calibragem dos pneus, dentre outros.",
+          "instrutor": {
+            "cpf": "12238071008"
+          }
+        }
+      ],
+      "cfc": {
+        "cnpj": "04787801000108"
+      }
+    }
+  },
+  {
+    "_id": "2",
+    "operacao": "outra_operacao",
+    "data_hora": "2024-11-08 15:30:00",
+    "agendamento": {
+      "uuid_agendamento": "22",
+      "codigo_servico": "42",
+      "aulas": [
+        {
+          "uuid": "91",
+          "curso": "CURSO2",
+          "periodo": {
+            "inicio": "2024-11-20 09:00:00",
+            "fim": "2024-11-20 10:00:00"
+          },
+          "numero": 10,
+          "conteudo": "Conteúdo do curso 2.",
+          "instrutor": {
+            "cpf": "12345678901"
+          }
+        }
+      ],
+      "cfc": {
+        "cnpj": "01234567890123"
+      }
+    }
+  },
+  {
+    "_id": "3",
+    "operacao": "agendado",
+    "data_hora": "2024-10-15 08:45:00",
+    "agendamento": {
+      "uuid_agendamento": "33",
+      "codigo_servico": "23",
+      "aulas": [
+        {
+          "uuid": "92",
+          "curso": "CURSO3",
+          "periodo": {
+            "inicio": "2024-10-25 13:00:00",
+            "fim": "2024-10-25 14:00:00"
+          },
+          "numero": 8,
+          "conteudo": "Conteúdo do curso 3.",
+          "instrutor": {
+            "cpf": "98765432109"
+          }
+        }
+      ],
+      "cfc": {
+        "cnpj": "09876543210987"
+      }
+    }
+  },
+  {
+    "_id": "4",
+    "operacao": "outra_operacao",
+    "data_hora": "2024-09-20 12:00:00",
+    "agendamento": {
+      "uuid_agendamento": "44",
+      "codigo_servico": "11",
+      "aulas": [
+        {
+          "uuid": "93",
+          "curso": "CURSO4",
+          "periodo": {
+            "inicio": "2024-09-30 15:30:00",
+            "fim": "2024-09-30 16:30:00"
+          },
+          "numero": 6,
+          "conteudo": "Conteúdo do curso 4.",
+          "instrutor": {
+            "cpf": "11223344556"
+          }
+        }
+      ],
+      "cfc": {
+        "cnpj": "11223344556677"
+      }
+    }
+  },
+  {
+    "_id": "5",
+    "operacao": "agendado",
+    "data_hora": "2024-08-25 17:00:00",
+    "agendamento": {
+      "uuid_agendamento": "55",
+      "codigo_servico": "53",
+      "aulas": [
+        {
+          "uuid": "94",
+          "curso": "CURSO5",
+          "periodo": {
+            "inicio": "2024-09-05 09:00:00",
+            "fim": "2024-09-05 10:00:00"
+          },
+          "numero": 4,
+          "conteudo": "Conteúdo do curso 5.",
+          "instrutor": {
+            "cpf": "54321098765"
+          }
+        }
+      ],
+      "cfc": {
+        "cnpj": "54321098765432"
+      }
+    }
+  },
+  {
+    "_id": "6",
+    "operacao": "outra_operacao",
+    "data_hora": "2024-07-30 14:30:00",
+    "agendamento": {
+      "uuid_agendamento": "66",
+      "codigo_servico": "21",
+      "aulas": [
+        {
+          "uuid": "95",
+          "curso": "CURSO6",
+          "periodo": {
+            "inicio": "2024-08-10 10:00:00",
+            "fim": "2024-08-10 11:00:00"
+          },
+          "numero": 2,
+          "conteudo": "Conteúdo do curso 6.",
+          "instrutor": {
+            "cpf": "98765432101"
+          }
+        }
+      ],
+      "cfc": {
+        "cnpj": "98765432101234"
+      }
+    }
+  },
+  {
+    "_id": "7",
+    "operacao": "agendado",
+    "data_hora": "2024-06-15 11:45:00",
+    "agendamento": {
+      "uuid_agendamento": "77",
+      "codigo_servico": "12",
+      "aulas": [
+        {
+          "uuid": "96",
+          "curso": "CURSO7",
+          "periodo": {
+            "inicio": "2024-06-25 14:00:00",
+            "fim": "2024-06-25 15:00:00"
+          },
+          "numero": 15,
+          "conteudo": "Conteúdo do curso 7.",
+          "instrutor": {
+            "cpf": "12309845601"
+          }
+        }
+      ],
+      "cfc": {
+        "cnpj": "12309845601234"
+      }
+    }
+  },
+  {
+    "_id": "8",
+    "operacao": "outra_operacao",
+    "data_hora": "2024-05-20 16:15:00",
+    "agendamento": {
+      "uuid_agendamento": "88",
+      "codigo_servico": "61",
+      "aulas": [
+        {
+          "uuid": "97",
+          "curso": "CURSO8",
+          "periodo": {
+            "inicio": "2024-05-30 08:00:00",
+            "fim": "2024-05-30 09:00:00"
+          },
+          "numero": 20,
+          "conteudo": "Conteúdo do curso 8.",
+          "instrutor": {
+            "cpf": "45612378901"
+          }
+        }
+      ],
+      "cfc": {
+        "cnpj": "45612378901234"
+      }
+    }
+  },
+  {
+    "_id": "9",
+    "operacao": "agendado",
+    "data_hora": "2024-04-10 09:30:00",
+    "agendamento": {
+      "uuid_agendamento": "99",
+      "codigo_servico": "72",
+      "aulas": [
+        {
+          "uuid": "98",
+          "curso": "CURSO9",
+          "periodo": {
+            "inicio": "2024-04-20 10:30:00",
+            "fim": "2024-04-20 11:30:00"
+          },
+          "numero": 18,
+          "conteudo": "Conteúdo do curso 9.",
+          "instrutor": {
+            "cpf": "78945612301"
+          }
+        }
+      ],
+      "cfc": {
+        "cnpj": "78945612301234"
+      }
+    }
+  },
+  {
+    "_id": "10",
+    "operacao": "outra_operacao",
+    "data_hora": "2024-03-05 13:00:00",
+    "agendamento": {
+      "uuid_agendamento": "100",
+      "codigo_servico": "91",
+      "aulas": [
+        {
+          "uuid": "99",
+          "curso": "CURSO10",
+          "periodo": {
+            "inicio": "2024-03-15 16:00:00",
+            "fim": "2024-03-15 17:00:00"
+          },
+          "numero": 22,
+          "conteudo": "Conteúdo do curso 10.",
+          "instrutor": {
+            "cpf": "65498732101"
+          }
+        }
+      ],
+      "cfc": {
+        "cnpj": "65498732101234"
+      }
+    }
+  }
+]
